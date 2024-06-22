@@ -1,6 +1,6 @@
 #+TITLE: dwmblock
 
-## About Dwmblocks
+#+ About Dwmblocks
 #+CAPTION: dwmblocks
 #+ATTR_HTML: :alt dwmblocks :title dwmblocks :align left
 [[https://gitlab.com/dwt1/dotfiles/raw/master/.screenshots/dotfiles05-thumb.png]]
