@@ -1,2 +1,26 @@
 #!/bin/sh
-#top -n | grep CPU | awk '{print $2}' | head -1  
+#!/bin/sh
+
+# Интервал обновления в секундах
+interval=1
+
+# Проверяем, что аргумент был передан и является числом
+if [ $# -eq 1 ]; then
+interval=$1
+fi
+
+# Функция для получения и вывода нагрузки процессора
+print_cpu_load() {
+# Используем vmstat для получения информации о загрузке процессора
+vmstat_output=$(vmstat 1 2 | tail -n 1)
+user_cpu=$(echo $vmstat_output | awk '{print $17}')
+
+# Выводим результаты
+echo "$user_cpu%"
+}
+
+# Бесконечный цикл для обновления информации о загрузке процессора
+while true; do
+print_cpu_load
+sleep $interval
+done
